@@ -1,0 +1,45 @@
+<div>
+    <div>EMPLOYEE DASHBOARD</div>
+    <div>
+        <input type="button" value="New leave" ng-click="newLeave()">
+        <input type="button" value="Sign out" ng-click="signOut()">
+    </div>
+    <div ng-show="leaveFormVisible">
+        <div class="newl-item">From
+            <input type="date" name="" ng-model="lapply.from">
+        </div>
+        <div class="newl-item">To
+            <input type="date" name="" ng-model="lapply.to">
+        </div>
+        <div class="newl-item">
+            <label for="singleSelect">Type</label>
+            <select name="singleSelect" ng-model="lapply.type" ">
+		      <option value="CL ">CL</option>
+		      <option value="SL ">SL</option>
+		      <option value="SL ">PL</option>
+		    </select>
+        </div>
+        <div class="newl-item">Reason
+            <input type="text " name=" " ng-model="lapply.reason ">
+        </div>
+        <div ng-show="applyError.length !=0" class="app-error newl-item">{{applyError}}</div>
+        <div class="newl-item">
+        	<input type="button" value="Apply" ng-click="apply()">
+        	<input type="button" value="Cancel" ng-click="cancel()">
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <td>From</td>
+            <td>To</td>
+            <td>Reason</td>
+            <td>Type</td>
+        </tr>
+        <tr ng-repeat="ls in myLeaves ">
+            <td>{{ls.from | date:'shortDate'}}</td>
+            <td>{{ls.to | date:'shortDate'}}</td>
+            <td>{{ls.reason}}</td>
+            <td>{{ls.type}}</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,26 @@
+<div>
+    <div>MANAGER DASHBOARD</div>
+	<div ><input type="button" value="Sign out" ng-click="signOut()"> </div>
+    <div>All leave requests</div>
+    <div ng-repeat="item in data">
+        <div>
+            <div>ID : {{item.id}}</div>
+            <div>Name : {{item.name}}</div>
+        </div>
+        <div ng-repeat="ls in item.requests">
+            <div>From : {{ls.from}}</div>
+            <div>To : {{ls.to}}</div>
+            <div>Reason : {{ls.reason}}</div>
+            <div>Type : {{ls.type}}</div>
+            <div>
+                <span>
+				<input type="button" value="Approve" ng-click="approve()">
+				</span>
+                <span>
+				<input type="button" value="Reject" ng-click="reject()">
+				</span>
+            </div>
+            <div>--------------------------------------</div>
+        </div>
+    </div>
+</div>
